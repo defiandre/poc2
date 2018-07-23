@@ -1,0 +1,25 @@
+{
+	"xsappname": "PoC2 App",
+	"scopes": [
+		{
+			"name": "$XSAPPNAME.Display",
+			"description": "display"
+		},
+		{
+			"name": "$XSAPPNAME.Create",
+			"description": "create"
+		}
+		],
+	"role-templates": [
+		{
+			"name": "PoC Viewer",
+			"description": "PoC Viewer",
+			"scope-references": ["$XSAPPNAME.Display"]
+		},
+		{
+			"name": "PoC Editor",
+			"description": "Create PoC",
+			"scope-references": ["$XSAPPNAME.Create","$XSAPPNAME.Display"]
+		}
+		]
+}

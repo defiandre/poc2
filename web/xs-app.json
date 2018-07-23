@@ -1,0 +1,30 @@
+{
+	"welcomeFile": "index.html",
+	"authenticationMethod": "route",
+	"routes": [
+		{
+		"source": "(.*)(.xsjs)",
+		"destination": "core-backend",
+		"csrfProtection": false,
+		"authenticationType": "xsuaa"
+	}, {
+		"source": "(.*)(.xsodata)",
+		"destination": "core-backend",
+		"csrfProtection": false,
+		"authenticationType": "xsuaa",
+		"scope": {
+			"GET": "$XSAPPNAME.Display",
+			"POST": ["$XSAPPNAME.Create", "$XSAPPNAME.Display"],
+			"default": "$XSAPPNAME.Display"
+		} 
+	},
+	{
+		"source": "/(.*)",
+		"localDir": "resources",
+		"authenticationType": "xsuaa",
+		"replace": {
+			"pathSuffixes": ["index.html"],
+			"vars":["ui5liburl"]
+		}}
+	]
+}
